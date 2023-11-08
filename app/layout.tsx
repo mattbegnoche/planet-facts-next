@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { League_Spartan, Antonio } from "next/font/google";
 import "./globals.css";
 
@@ -24,7 +25,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${leagueSpartan.variable} font-sans`}>{children}</body>
+      <body
+        className={`${leagueSpartan.variable} font-sans min-h-full bg-planetGray-900 text-white container mx-auto`}
+      >
+        <Image
+          className="absolute inset-0 z-0 w-full h-full object-cover "
+          src="/assets/background-stars.svg"
+          alt="Background Image with Stars"
+          width={1920}
+          height={1080}
+        />
+        <nav>
+          <span className="font-mono font-semibold uppercase text-3xl ">
+            The Planets
+          </span>
+          <ul>
+            <li></li>
+          </ul>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
