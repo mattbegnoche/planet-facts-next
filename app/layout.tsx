@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { League_Spartan, Antonio } from "next/font/google";
 import "./globals.css";
+import NavLink from "./NavLink";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -29,18 +30,25 @@ export default function RootLayout({
         className={`${leagueSpartan.variable} font-sans min-h-full bg-planetGray-900 text-white container mx-auto`}
       >
         <Image
-          className="absolute inset-0 z-0 w-full h-full object-cover "
+          className="absolute inset-0 z-0 w-full h-full object-cover pointer-events-none"
           src="/assets/background-stars.svg"
           alt="Background Image with Stars"
           width={1920}
           height={1080}
         />
-        <nav>
+        <nav className="flex flex-row justify-between items-center px-8 py-7">
           <span className="font-mono font-semibold uppercase text-3xl ">
             The Planets
           </span>
-          <ul>
-            <li></li>
+          <ul className="flex flex-row gap-8 ">
+            <NavLink>mercury</NavLink>
+            <NavLink>venus</NavLink>
+            <NavLink>earth</NavLink>
+            <NavLink>mars</NavLink>
+            <NavLink>jupiter</NavLink>
+            <NavLink>saturn</NavLink>
+            <NavLink>uranus</NavLink>
+            <NavLink>neptune</NavLink>
           </ul>
         </nav>
         {children}
